@@ -10,7 +10,7 @@
 
     <servlet>
         <servlet-name>Login</servlet-name>
-        <servlet-class>com.placement.servlets.LoginServlet</servlet-class>
+        <servlet-class>com.placement.servlets.common.LoginServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -20,7 +20,7 @@
 
     <servlet>
         <servlet-name>Logout</servlet-name>
-        <servlet-class>com.placement.servlets.LogoutServlet</servlet-class>
+        <servlet-class>com.placement.servlets.common.LogoutServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -31,7 +31,7 @@
 
     <servlet>
         <servlet-name>StudentServlet</servlet-name>
-        <servlet-class>com.placement.servlets.StudentServlet</servlet-class>
+        <servlet-class>com.placement.servlets.student.StudentServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>

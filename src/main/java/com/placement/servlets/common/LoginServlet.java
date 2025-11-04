@@ -1,4 +1,4 @@
-package com.placement.servlets;
+package com.placement.servlets.common;
 
 import com.placement.dao.DBConnection;
 import jakarta.servlet.RequestDispatcher;

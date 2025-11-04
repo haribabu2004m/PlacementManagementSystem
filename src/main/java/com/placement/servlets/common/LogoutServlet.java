@@ -1,8 +1,8 @@
-package com.placement.servlets;
+package com.placement.servlets.common;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+
 import java.io.IOException;
 
 public class LogoutServlet extends HttpServlet {
