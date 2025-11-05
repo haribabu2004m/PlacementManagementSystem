@@ -43,7 +43,7 @@ build/
 
 
 # Configuration files (local only)
-config.properties
+src/main/resources/config.properties
 
 
 ### VS Code ###
