@@ -17,28 +17,33 @@ public class DBConnection {
 
     static {
         try {
-            // Load PostgreSQL Driver
             Class.forName("org.postgresql.Driver");
             System.out.println("✅ PostgreSQL Driver loaded successfully!");
 
-            // Load configuration from properties file
             Properties props = new Properties();
-            try (InputStream input = new FileInputStream(CONFIG_PATH)) {
-                props.load(input);
-                URL = props.getProperty("db.url");
-                USER = props.getProperty("db.user");
-                PASSWORD = props.getProperty("db.password");
-                System.out.println("✅ Database configuration loaded successfully!");
-            } catch (IOException e) {
-                System.err.println("⚠️ Failed to load database configuration file!");
-                e.printStackTrace();
+
+            // Load config.properties from classpath (resources folder)
+            try (InputStream input = DBConnection.class.getClassLoader().getResourceAsStream("config.properties")) {
+                if (input == null) {
+                    System.err.println("⚠️ config.properties not found in resources folder!");
+                } else {
+                    props.load(input);
+                    URL = props.getProperty("db.url");
+                    USER = props.getProperty("db.user");
+                    PASSWORD = props.getProperty("db.password");
+                    System.out.println("✅ Database configuration loaded successfully!");
+                }
             }
 
         } catch (ClassNotFoundException e) {
-            System.err.println("❌ Error loading PostgreSQL Driver!");
+            System.err.println("❌ PostgreSQL Driver not found!");
+            e.printStackTrace();
+        } catch (IOException e) {
+            System.err.println("⚠️ Failed to load config.properties!");
             e.printStackTrace();
         }
     }
+
 
     // ✅ Always return a new connection for each request
     public static Connection getConnection() {
@@ -46,8 +51,12 @@ public class DBConnection {
             return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (SQLException e) {
             System.err.println("❌ Failed to establish database connection!");
+            System.err.println("URL: " + URL);
+            System.err.println("USER: " + USER);
+            System.err.println("PASSWORD: " + PASSWORD); // temporary — remove later!
             e.printStackTrace();
             return null;
         }
+
     }
 }

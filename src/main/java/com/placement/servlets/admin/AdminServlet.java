@@ -1,4 +1,4 @@
-package com.placement.servlets;
+package com.placement.servlets.admin;
 
 import com.placement.dao.StudentDAO;
 import com.placement.model.Student;
@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.List;
 
 

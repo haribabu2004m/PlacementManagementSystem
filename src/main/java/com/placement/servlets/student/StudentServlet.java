@@ -1,10 +1,9 @@
-package com.placement.servlets;
+package com.placement.servlets.student;
 
 import com.placement.dao.DBConnection;
 import com.placement.model.Student;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.sql.*;

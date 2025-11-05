@@ -1,4 +1,4 @@
-package com.placement.servlets;
+package com.placement.servlets.admin;
 
 import com.placement.dao.StudentDAO;
 import com.placement.model.Student;
